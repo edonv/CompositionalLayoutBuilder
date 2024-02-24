@@ -7,7 +7,11 @@
 
 import SwiftUI
 
+#if canImport(UIKit)
 public typealias CollectionViewLayout = UICollectionViewCompositionalLayout
+#else
+public typealias CollectionViewLayout = NSCollectionViewCompositionalLayout
+#endif
 
 @resultBuilder
 public struct CollectionLayoutBuilder {
