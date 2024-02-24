@@ -64,7 +64,7 @@ public struct LayoutSection {
     /// The amount of space between the content of the section and its boundaries.
     public func contentInsets(_ insets: EdgeInsets) -> Self {
         let new = self
-        new.section.contentInsets = .init(insets)
+        new.section.contentInsets = .init(backport: insets)
         return new
     }
     

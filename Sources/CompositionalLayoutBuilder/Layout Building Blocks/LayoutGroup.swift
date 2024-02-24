@@ -64,7 +64,7 @@ public struct LayoutGroup {
     /// For more details, see: [contentInsets](https://developer.apple.com/documentation/uikit/nscollectionlayoutitem/3199084-contentinsets)
     public func contentInsets(_ insets: EdgeInsets) -> Self {
         let new = self
-        new.group.contentInsets = .init(insets)
+        new.group.contentInsets = .init(backport: insets)
         return new
     }
 }

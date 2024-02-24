@@ -44,7 +44,7 @@ public struct LayoutItem {
     /// For more details, see: [contentInsets](https://developer.apple.com/documentation/uikit/nscollectionlayoutitem/3199084-contentinsets)
     public func contentInsets(_ insets: EdgeInsets) -> Self {
         let new = self
-        new.item.contentInsets = .init(insets)
+        new.item.contentInsets = .init(backport: insets)
         return new
     }
 }
