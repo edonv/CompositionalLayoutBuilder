@@ -70,6 +70,7 @@ public struct LayoutSection {
         return new
     }
     
+    #if canImport(UIKit)
     /// The boundary to reference when defining content insets.
     ///
     /// For more details, see: [contentInsetsReference](https://developer.apple.com/documentation/uikit/nscollectionlayoutitem/3199084-contentinsets)
@@ -81,6 +82,7 @@ public struct LayoutSection {
         insetsHandler(&new.section.contentInsetsReference)
         return new
     }
+    #endif
     
     // TODO: supplementary items
     
