@@ -1,5 +1,5 @@
 //
-//  CollectionLayoutBuilder.swift
+//  CompositionalLayoutBuilder.swift
 //
 //
 //  Created by Edon Valdman on 2/24/24.
@@ -14,7 +14,7 @@ public typealias CompositionalLayout = NSCollectionViewCompositionalLayout
 #endif
 
 @resultBuilder
-public struct CollectionLayoutBuilder {
+public struct CompositionalLayoutBuilder {
     public typealias FinalResult = CompositionalLayout
     public typealias Expression = NSCollectionLayoutSection
     public typealias Component = [Expression]
