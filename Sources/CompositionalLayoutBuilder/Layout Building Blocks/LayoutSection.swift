@@ -40,6 +40,7 @@ public struct LayoutSection {
         return new
     }
     
+    #if canImport(UIKit)
     /// Can set the section orthogonal scrolling properties.
     ///
     /// For more details, see: [orthogonalScrollingProperties](https://developer.apple.com/documentation/uikit/nscollectionlayoutsection/4134809-orthogonalscrollingproperties)
@@ -51,6 +52,7 @@ public struct LayoutSection {
         propertiesHandler(new.section.orthogonalScrollingProperties)
         return new
     }
+    #endif
     
     // MARK: - Configuring section spacing
     
