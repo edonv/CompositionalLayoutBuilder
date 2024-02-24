@@ -5,6 +5,13 @@ import PackageDescription
 
 let package = Package(
     name: "CompositionalLayoutBuilder",
+    platforms: [
+        .iOS(.v13),
+        .macCatalyst(.v13),
+        .macOS(.v10_15),
+        .tvOS(.v13),
+        .visionOS(.v1)
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
