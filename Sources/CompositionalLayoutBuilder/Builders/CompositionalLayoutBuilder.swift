@@ -23,7 +23,7 @@ public struct CompositionalLayoutBuilder {
         [expression]
     }
     
-    public static func buildExpression(_ expression: LayoutSection) -> Component {
+    public static func buildExpression(_ expression: CompositionalSection) -> Component {
         [expression.section]
     }
     

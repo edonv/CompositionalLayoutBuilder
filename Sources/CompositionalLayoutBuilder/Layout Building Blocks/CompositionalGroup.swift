@@ -1,5 +1,5 @@
 //
-//  LayoutGroup.swift
+//  CompositionalGroup.swift
 //
 //
 //  Created by Edon Valdman on 2/24/24.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// A proxy type for [`NSCollectionLayoutGroup`](https://developer.apple.com/documentation/uikit/nscollectionlayoutgroup).
-public struct LayoutGroup {
+public struct CompositionalGroup {
     public let group: NSCollectionLayoutGroup
     
     public init(

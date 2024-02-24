@@ -1,5 +1,5 @@
 //
-//  LayoutItem.swift
+//  CompositionalItem.swift
 //  
 //
 //  Created by Edon Valdman on 2/24/24.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// A proxy type for [`NSCollectionLayoutItem`](https://developer.apple.com/documentation/uikit/nscollectionlayoutitem).
-public struct LayoutItem {
+public struct CompositionalItem {
     public let item: NSCollectionLayoutItem
     
     // MARK: - Creating an item
@@ -21,7 +21,7 @@ public struct LayoutItem {
     }
     
     /// Creates an array that repeats this item a certain number of times.
-    public func repeating(count: Int) -> [LayoutItem] {
+    public func repeating(count: Int) -> [CompositionalItem] {
         .init(repeating: self, count: count)
     }
     

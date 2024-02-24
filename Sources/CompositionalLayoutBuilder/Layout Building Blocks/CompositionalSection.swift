@@ -1,5 +1,5 @@
 //
-//  LayoutSection.swift
+//  CompositionalSection.swift
 //
 //
 //  Created by Edon Valdman on 2/24/24.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// A proxy type for [`NSCollectionLayoutSection`](https://developer.apple.com/documentation/uikit/nscollectionlayoutsection).
-public struct LayoutSection {
+public struct CompositionalSection {
     #if canImport(UIKit)
     
     /// The scrolling behavior of the layout's sections in relation to the main layout axis.
@@ -26,7 +26,7 @@ public struct LayoutSection {
     
     // MARK: - Creating a section
     
-    public init(group: @escaping () -> LayoutGroup) {
+    public init(group: @escaping () -> CompositionalGroup) {
         self.section = .init(group: group().group)
     }
     

@@ -17,11 +17,11 @@ public struct CollectionLayoutGroupBuilder {
         [expression]
     }
     
-    public static func buildExpression(_ expression: LayoutItem...) -> Component {
+    public static func buildExpression(_ expression: CompositionalItem...) -> Component {
         buildExpression(expression)
     }
     
-    public static func buildExpression(_ expression: some Sequence<LayoutItem>) -> Component {
+    public static func buildExpression(_ expression: some Sequence<CompositionalItem>) -> Component {
         expression.map(\.item)
     }
     
@@ -29,7 +29,7 @@ public struct CollectionLayoutGroupBuilder {
         [expression].compactMap { $0 }
     }
     
-    public static func buildExpression(_ expression: LayoutGroup) -> Component {
+    public static func buildExpression(_ expression: CompositionalGroup) -> Component {
         [expression.group]
     }
     
