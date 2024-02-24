@@ -8,14 +8,14 @@
 import SwiftUI
 
 #if canImport(UIKit)
-public typealias CollectionViewLayout = UICollectionViewCompositionalLayout
+public typealias CompositionalLayout = UICollectionViewCompositionalLayout
 #else
-public typealias CollectionViewLayout = NSCollectionViewCompositionalLayout
+public typealias CompositionalLayout = NSCollectionViewCompositionalLayout
 #endif
 
 @resultBuilder
 public struct CollectionLayoutBuilder {
-    public typealias FinalResult = CollectionViewLayout
+    public typealias FinalResult = CompositionalLayout
     public typealias Expression = NSCollectionLayoutSection
     public typealias Component = [Expression]
     
