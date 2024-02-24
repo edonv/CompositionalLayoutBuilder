@@ -9,16 +9,17 @@ import SwiftUI
 
 /// A proxy type for [`NSCollectionLayoutSection`](https://developer.apple.com/documentation/uikit/nscollectionlayoutsection).
 public struct LayoutSection {
-    #if canImport(AppKit)
-    /// The scrolling behavior of the layout's sections in relation to the main layout axis.
-    ///
-    /// For more details, see: [NSCollectionLayoutSectionOrthogonalScrollingBehavior](https://developer.apple.com/documentation/appkit/nscollectionlayoutsectionorthogonalscrollingbehavior)
-    public typealias OrthogonalScrollingBehavior = NSCollectionLayoutSectionOrthogonalScrollingBehavior
-    #else
+    #if canImport(UIKit)
+    
     /// The scrolling behavior of the layout's sections in relation to the main layout axis.
     ///
     /// For more details, see: [UICollectionLayoutSectionOrthogonalScrollingBehavior](https://developer.apple.com/documentation/uikit/uicollectionlayoutsectionorthogonalscrollingbehavior)
     public typealias OrthogonalScrollingBehavior = UICollectionLayoutSectionOrthogonalScrollingBehavior
+    #else
+    /// The scrolling behavior of the layout's sections in relation to the main layout axis.
+    ///
+    /// For more details, see: [NSCollectionLayoutSectionOrthogonalScrollingBehavior](https://developer.apple.com/documentation/appkit/nscollectionlayoutsectionorthogonalscrollingbehavior)
+    public typealias OrthogonalScrollingBehavior = NSCollectionLayoutSectionOrthogonalScrollingBehavior
     #endif
     
     public let section: NSCollectionLayoutSection
