@@ -1,5 +1,8 @@
 # CompositionalLayoutBuilder
 
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fedonv%2FCompositionalLayoutBuilder%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/edonv/CompositionalLayoutBuilder)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fedonv%2FCompositionalLayoutBuilder%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/edonv/CompositionalLayoutBuilder)
+
 `CompositionalLayoutBuilder` gives you the ability to "compose" a `UICollectionViewCompositionalLayout`/`NSCollectionViewCompositionalLayout` via result builders syntax.
 
 It can be used in any context you might use a `UICollectionView`/`NSCollectionView`, including another package of mine: [`CollectionView`](https://github.com/edonv/CollectionView) (which will come pre-packaged with initializers that use the layout builders).
