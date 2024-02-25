@@ -34,6 +34,10 @@ var layout: CompositionalLayout {
 }
 ```
 
+## Documentation
+
+Documentation can be found [here, hosted on Swift Package Index](https://swiftpackageindex.com/edonv/CompositionalLayoutBuilder//documentation/compositionallayoutbuilder).
+
 ## To-Do's
 
 - [ ] Add documentation to `@CompositionalLayoutBuilder` initializers.
