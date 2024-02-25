@@ -20,7 +20,7 @@ To add it manually to a Swift Package, add the following to the `dependencies` p
 )
 ```
 
-## Example
+## Comparison
 
 With `CompositionalLayoutBuilder`:
 
