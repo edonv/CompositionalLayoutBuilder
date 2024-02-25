@@ -22,9 +22,11 @@ To add it manually to a Swift Package, add the following to the `dependencies` p
 
 ## Example
 
+With `CompositionalLayoutBuilder`:
+
 ```swift
 @CompositionalLayoutBuilder
-var layout: CompositionalLayout {
+let layout: CompositionalLayout = {
     LayoutSection {
         LayoutGroup(.horizontal, width: .fractionalWidth(1), height: .absolute(200)) {
             LayoutGroup(.vertical, width: .fractionalWidth(0.75), height: .fractionalHeight(1)) {
@@ -44,7 +46,70 @@ var layout: CompositionalLayout {
         }
     }
     .orthogonalScrollingBehavior(.continuous)
-}
+}()
+```
+
+With vanilla `UICollectionViewCompositionalLayout`:
+
+```swift
+let layout: UICollectionViewCompositionalLayout = {
+    UICollectionViewCompositionalLayout { section, _ in
+        switch section {
+        case 0:
+            let innerItem = NSCollectionLayoutItem(layoutSize: .init(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .fractionalHeight(0.5)
+            ))
+            
+            let innerGroup = NSCollectionLayoutGroup.vertical(
+                layoutSize: .init(
+                    widthDimension: .fractionalWidth(0.75),
+                    heightDimension: .fractionalHeight(1)
+                ),
+                subitem: innerItem,
+                count: 2
+            )
+            
+            innerGroup.interItemSpacing = .fixed(8)
+            
+            let outerItem = NSCollectionLayoutItem(layoutSize: .init(
+                widthDimension: .fractionalWidth(0.25),
+                heightDimension: .fractionalHeight(1)
+            ))
+            
+            let mainGroup = NSCollectionLayoutGroup.horizontal(
+                layoutSize: .init(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .absolute(200)
+                ),
+                subitems: [innerGroup, outerItem]
+            )
+            
+            return .init(group: mainGroup)
+            
+        case 1:
+            let innerItem = NSCollectionLayoutItem(layoutSize: .init(
+                widthDimension: .fractionalWidth(0.5),
+                heightDimension: .fractionalHeight(1)
+            ))
+            
+            let mainGroup = NSCollectionLayoutGroup.horizontal(
+                layoutSize: .init(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .absolute(100)
+                ),
+                subitems: [innerItem]
+            )
+            
+            let section = NSCollectionLayoutSection(group: mainGroup)
+            section.orthogonalScrollingBehavior = .continuous
+            return section
+            
+        default:
+            return nil
+        }
+    }
+}()
 ```
 
 ## Documentation
