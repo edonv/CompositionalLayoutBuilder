@@ -7,6 +7,19 @@
 
 It can be used in any context you might use a `UICollectionView`/`NSCollectionView`, including another package of mine: [`CollectionView`](https://github.com/edonv/CollectionView) (which will come pre-packaged with initializers that use the layout builders).
 
+## Install
+
+To add `CompositionalLayoutBuilder` to an Xcode project, go to `File` > `Add Package Dependencies...`, and paste `https://github.com/edonv/CompositionalLayoutBuilder` into the Search field.
+
+To add it manually to a Swift Package, add the following to the `dependencies` property in the `Package.swift` file:
+
+```swift
+.package(
+    url: "https://github.com/edonv/CompositionalLayoutBuilder",
+    upToNextMajor(from: "0.0.0")
+)
+```
+
 ## Example
 
 ```swift
