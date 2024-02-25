@@ -36,6 +36,12 @@ public struct CompositionalGroup {
                              itemProvider: itemProvider)
     }
     
+    /// Returns the layout while printing an ASCII representation of the group.
+    public func printVisualDescription() -> Self {
+        print(group.visualDescription())
+        return self
+    }
+    
     /// Returns a string with an ASCII representation of the group.
     public func visualDescription() -> String {
         group.visualDescription()
