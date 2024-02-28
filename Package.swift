@@ -1,17 +1,22 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 5.7
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
+var platforms: [SupportedPlatform] = [
+    .iOS(.v13),
+    .macCatalyst(.v13),
+    .macOS(.v10_15),
+    .tvOS(.v13)
+]
+
+#if swift(>=5.9) && os(visionOS)
+platforms.append(.visionOS(.v1))
+#endif
+
 let package = Package(
     name: "CompositionalLayoutBuilder",
-    platforms: [
-        .iOS(.v13),
-        .macCatalyst(.v13),
-        .macOS(.v10_15),
-        .tvOS(.v13),
-        .visionOS(.v1)
-    ],
+    platforms: platforms,
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
