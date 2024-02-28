@@ -1,0 +1,28 @@
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+
+name: Swift
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [ "main" ]
+
+jobs:
+  build:
+    name: Build Package Against Swift ${{ matrix.swift }}
+    strategy:
+      matrix:
+        os: [macos-latest]
+        swift: ["5.7", "5.8", "5.9"]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: swift-actions/setup-swift@v1
+      with:
+        swift-version: ${{ matrix.swift }}
+    - uses: actions/checkout@v3
+    - name: Build
+      run: swift build -v
+    # - name: Run tests
+    #   run: swift test -v
