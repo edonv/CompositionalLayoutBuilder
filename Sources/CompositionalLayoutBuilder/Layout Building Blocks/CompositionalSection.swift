@@ -41,7 +41,7 @@ public struct CompositionalSection {
         return new
     }
     
-    #if canImport(UIKit)
+    #if canImport(UIKit) && swift(>=5.9)
     /// Can set the section orthogonal scrolling properties.
     ///
     /// For more details, see: [orthogonalScrollingProperties](https://developer.apple.com/documentation/uikit/nscollectionlayoutsection/4134809-orthogonalscrollingproperties)
