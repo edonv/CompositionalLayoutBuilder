@@ -26,7 +26,7 @@ With `CompositionalLayoutBuilder`:
 
 ```swift
 @CompositionalLayoutBuilder
-let layout: CompositionalLayout = {
+var layout: CompositionalLayout {
     CompositionalSection {
         CompositionalGroup(.horizontal, width: .fractionalWidth(1), height: .absolute(200)) {
             LayoutGroup(.vertical, width: .fractionalWidth(0.75), height: .fractionalHeight(1)) {
@@ -46,7 +46,7 @@ let layout: CompositionalLayout = {
         }
     }
     .orthogonalScrollingBehavior(.continuous)
-}()
+}
 ```
 
 With vanilla `UICollectionViewCompositionalLayout`:
