@@ -10,15 +10,11 @@ import SwiftUI
 @resultBuilder
 public struct CompositionalLayoutBuilder {
     public typealias FinalResult = CompositionalLayout
-    public typealias Expression = NSCollectionLayoutSection
+    public typealias Expression = CompositionalSection
     public typealias Component = [Expression]
     
-    public static func buildExpression(_ expression: Expression) -> Component {
-        [expression]
-    }
-    
     public static func buildExpression(_ expression: CompositionalSection) -> Component {
-        [expression.section]
+        [expression]
     }
     
     public static func buildBlock(_ components: Component...) -> Component {
@@ -50,6 +46,6 @@ public struct CompositionalLayoutBuilder {
     }
     
     public static func buildFinalResult(_ component: Component) -> FinalResult {
-        .init(sections: component)
+        .init(sections: component.map(\.section))
     }
 }
