@@ -25,28 +25,30 @@ To add it manually to a Swift Package, add the following to the `dependencies` p
 With `CompositionalLayoutBuilder`:
 
 ```swift
-@CompositionalLayoutBuilder
-var layout: CompositionalLayout {
-    CompositionalSection {
-        CompositionalGroup(.horizontal, width: .fractionalWidth(1), height: .absolute(200)) {
-            LayoutGroup(.vertical, width: .fractionalWidth(0.75), height: .fractionalHeight(1)) {
-                LayoutItem(width: .fractionalWidth(1), height: .fractionalHeight(0.5))
-                    .repeating(count: 2)
+let layout: CompositionalLayout = {
+    CompositionalLayout {
+        CompositionalSection {
+            CompositionalGroup(.horizontal, width: .fractionalWidth(1), height: .absolute(200)) {
+                LayoutGroup(.vertical, width: .fractionalWidth(0.75), height: .fractionalHeight(1)) {
+                    LayoutItem(width: .fractionalWidth(1), height: .fractionalHeight(0.5))
+                        .repeating(count: 2)
+                }
+                .interItemSpacing(.fixed(8))
+                
+                CompositionalItem(width: .fractionalWidth(0.25), height: .fractionalHeight(1))
             }
-            .interItemSpacing(.fixed(8))
-            
-            CompositionalItem(width: .fractionalWidth(0.25), height: .fractionalHeight(1))
+            .interItemSpacing(.fixed(16))
         }
-        .interItemSpacing(.fixed(16))
-    }
 
-    CompositionalSection {
-        CompositionalGroup(.horizontal, width: .fractionalWidth(1), height: .absolute(100)) {
-            CompositionalItem(width: .fractionalWidth(0.5), height: .fractionalHeight(1))
+        CompositionalSection {
+            CompositionalGroup(.horizontal, width: .fractionalWidth(1), height: .absolute(100)) {
+                CompositionalItem(width: .fractionalWidth(0.5), height: .fractionalHeight(1))
+            }
         }
+        .orthogonalScrollingBehavior(.continuous)
     }
-    .orthogonalScrollingBehavior(.continuous)
-}
+    .scrollDirection(.vertical)
+}()
 ```
 
 With vanilla `UICollectionViewCompositionalLayout`:
