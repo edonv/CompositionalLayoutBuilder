@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-#if canImport(UIKit)
-public typealias CompositionalLayout = UICollectionViewCompositionalLayout
-#else
-public typealias CompositionalLayout = NSCollectionViewCompositionalLayout
-#endif
-
 @resultBuilder
 public struct CompositionalLayoutBuilder {
     public typealias FinalResult = CompositionalLayout
@@ -56,8 +50,6 @@ public struct CompositionalLayoutBuilder {
     }
     
     public static func buildFinalResult(_ component: Component) -> FinalResult {
-        .init { section, _ in
-            component[section % component.count]
-        }
+        .init(sections: component)
     }
 }
