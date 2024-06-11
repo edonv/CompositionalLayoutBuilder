@@ -36,6 +36,17 @@ public struct CompositionalGroup {
                              itemProvider: itemProvider)
     }
     
+    // MARK: - Configuring group spacing
+    
+    /// Sets the amount of space between the items in the group.
+    public func interItemSpacing(_ spacing: NSCollectionLayoutSpacing) -> Self {
+        let new = self
+        new.group.interItemSpacing = spacing
+        return new
+    }
+    
+    // MARK: - Debugging group layout
+    
     /// Returns the layout while printing an ASCII representation of the group.
     public func printVisualDescription() -> Self {
         print(group.visualDescription())
@@ -47,14 +58,7 @@ public struct CompositionalGroup {
         group.visualDescription()
     }
     
-    /// Sets the amount of space between the items in the group.
-    public func interItemSpacing(_ spacing: NSCollectionLayoutSpacing) -> Self {
-        let new = self
-        new.group.interItemSpacing = spacing
-        return new
-    }
-    
-    // MARK: - Configuring spacing and insets
+    // MARK: - Configuring spacing and insets (Item)
     
     /// Sets the amount of space added around the boundaries of the item between other items and this item's container.
     ///
