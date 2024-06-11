@@ -10,7 +10,6 @@ import SwiftUI
 /// A proxy type for [`NSCollectionLayoutSection`](https://developer.apple.com/documentation/uikit/nscollectionlayoutsection).
 public struct CompositionalSection {
     #if canImport(UIKit)
-    
     /// The scrolling behavior of the layout's sections in relation to the main layout axis.
     ///
     /// For more details, see: [UICollectionLayoutSectionOrthogonalScrollingBehavior](https://developer.apple.com/documentation/uikit/uicollectionlayoutsectionorthogonalscrollingbehavior)
