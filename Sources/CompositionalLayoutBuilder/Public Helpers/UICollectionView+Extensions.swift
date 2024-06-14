@@ -9,6 +9,36 @@
 import UIKit
 
 extension UICollectionView {
+    // MARK: - Init
+    
+    /// Creates a collection view object with the specified frame and compositional layout.
+    ///
+    /// Use this method when initializing a collection view object programmatically.
+    /// - Parameters:
+    ///   - frame: The frame rectangle for the collection view, measured in points. The origin of the frame is relative to the superview in which you plan to add it. This frame is passed to the superclass during initialization.
+    ///   - layout: The layout to use for organizing items. The collection view stores a strong reference to the specified object.
+    public convenience init(
+        frame: CGRect,
+        compositionalLayout layout: CompositionalLayout
+    ) {
+        self.init(frame: frame, collectionViewLayout: layout.layout)
+    }
+    
+    /// Creates a collection view object with the specified frame and compositional layout.
+    ///
+    /// Use this method when initializing a collection view object programmatically.
+    /// - Parameters:
+    ///   - frame: The frame rectangle for the collection view, measured in points. The origin of the frame is relative to the superview in which you plan to add it. This frame is passed to the superclass during initialization.
+    ///   - layoutBuilder: The layout to use for organizing items. The collection view stores a strong reference to the specified object.
+    public convenience init(
+        frame: CGRect,
+        @CompositionalLayoutBuilder _ layoutBuilder: () -> CompositionalLayout
+    ) {
+        self.init(frame: frame, collectionViewLayout: layoutBuilder().layout)
+    }
+    
+    // MARK: - setCompositionalLayout
+    
     /// Changes the collection view’s layout and notifies you when the animations complete.
     ///
     /// This method initiates a layout change programmatically, notifying you when the transition is complete. If you choose to animate the layout change, the animation timing and parameters are controlled by the collection view.
