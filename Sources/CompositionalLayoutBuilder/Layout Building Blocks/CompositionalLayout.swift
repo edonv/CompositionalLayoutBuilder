@@ -86,3 +86,13 @@ public struct CompositionalLayout {
         return new
     }
 }
+
+extension CompositionalLayout: Hashable {
+    public static func ==(lhs: Self, rhs: Self) -> Bool {
+        lhs.layout == rhs.layout
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(layout)
+    }
+}
